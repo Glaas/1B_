@@ -3,46 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
+    public CharacterController2D controller;
+    public Animator animator;
+    public KeyCode jumpKey;
 
-	public CharacterController2D controller;
-	public Animator animator;
-	public KeyCode jumpKey;
+    public float runSpeed = 40f;
 
-	public float runSpeed = 40f;
+    float horizontalMove = 0f;
+    bool jump = false;
 
-	float horizontalMove = 0f;
-	bool jump = false;
-
-	//bool dashAxis = false;
-	
-	// Update is called once per frame
-	void Update () {
-
-		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-
-		animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-
-		if (Input.GetKeyDown(jumpKey))
-		{
-			jump = true;
-		}
-	}
-
-	public void OnFall()
-	{
-		animator.SetBool("IsJumping", true);
-	}
-
-	public void OnLanding()
-	{
-		animator.SetBool("IsJumping", false);
-	}
-
-	void FixedUpdate ()
-	{
-		// Move our character
-		controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
-		jump = false;
-	}
+    void Update()
+    {
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        if (Input.GetKeyDown(jumpKey)) jump = true;
+        FlipSprite(horizontalMove);
+    }
+    private void FlipSprite(float movDir) { if (movDir != 0) GetComponent<SpriteRenderer>().flipX = movDir < 0 ? true : false; }
+    void FixedUpdate()
+    {
+        // Move our character in FixedUpdate to avoid physics issues
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
+        jump = false;
+    }
 }
