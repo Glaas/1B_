@@ -1,6 +1,16 @@
-using UnityEngine;
-using UnityEngine.Events;
+// **************************************************************************************************************************************************************
+// This controller is loosely based on the Metroidvania controller here https://assetstore.unity.com/packages/2d/characters/metroidvania-controller-166731
+// I tend to use this controller as a base for my 2D controllers. Except for the horizontal movement, and the ground detection which I adepted to my needs, everything
+// else was stripped away from the original controller.
+// Main concepts I kept :
+// - the limit player speed
+// - the ground check through OverlapCircleAll
+// Original code is multiple hundered lines long, my version starts at ~60 lines long
+//
+// - <Sebastien>
+// **************************************************************************************************************************************************************
 
+using UnityEngine;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -29,17 +39,9 @@ public class CharacterController2D : MonoBehaviour
         m_Grounded = false;
 
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
-        // This can be done using layers instead but Sample Assets will not overwrite your project settings.
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, k_GroundedRadius, groundLayers);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].gameObject != gameObject)
-                m_Grounded = true;
-        }
-        if (!m_Grounded)
-        {
-            prevVelocityX = m_Rigidbody2D.velocity.x;
-        }
+        for (int i = 0; i < colliders.Length; i++) if (colliders[i].gameObject != gameObject) m_Grounded = true;
+        if (!m_Grounded) prevVelocityX = m_Rigidbody2D.velocity.x;
     }
 
     public void Move(float move, bool jump)
@@ -58,10 +60,10 @@ public class CharacterController2D : MonoBehaviour
             if (m_Grounded && jump)
             {
                 // Add a vertical force to the player.
+                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                m_Grounded = false;
                 animator.SetBool("IsJumping", true);
                 animator.SetBool("JumpUp", true);
-                m_Grounded = false;
-                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
                 dustMotesPS.Play();
                 trailPS.Play();
             }
@@ -75,14 +77,12 @@ public class CharacterController2D : MonoBehaviour
     }
     private void FlipSprite()
     {
-
         //flip sprite renderer x based on delta position x
         if (m_Rigidbody2D.velocity.x > 0 && !m_FacingRight || m_Rigidbody2D.velocity.x < 0 && m_FacingRight)
         {
             m_FacingRight = !m_FacingRight;
             GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
         }
-
     }
     private void Awake()
     {
