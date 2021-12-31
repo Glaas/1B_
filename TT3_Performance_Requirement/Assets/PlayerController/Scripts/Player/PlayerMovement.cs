@@ -9,23 +9,27 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public KeyCode jumpKey;
 
+    //public so can be affected by external factors
     public float runSpeed = 40f;
 
-    float horizontalMove = 0f;
-    bool jump = false;
+    //These two values are fields so the input can be gathered in Update and applied in FixedUpdate
+    private float _horizontalMovDir = 0f;
+    private bool jump = false;
 
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        _horizontalMovDir = Input.GetAxisRaw("Horizontal") * runSpeed;
+        animator.SetFloat("Speed", Mathf.Abs(_horizontalMovDir));
         if (Input.GetKeyDown(jumpKey)) jump = true;
-        FlipSprite(horizontalMove);
+        FlipSprite(_horizontalMovDir);
     }
-    private void FlipSprite(float movDir) { if (movDir != 0) GetComponent<SpriteRenderer>().flipX = movDir < 0 ? true : false; }
+
     void FixedUpdate()
     {
         // Move our character in FixedUpdate to avoid physics issues
-        controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
+        controller.Move(_horizontalMovDir * Time.fixedDeltaTime, jump);
         jump = false;
     }
+    //Being passed the movement direction, this method will flip the sprite to face the direction of movement
+    private void FlipSprite(float horizontalMovDir) { if (horizontalMovDir != 0) GetComponent<SpriteRenderer>().flipX = horizontalMovDir < 0 ? true : false; }
 }
