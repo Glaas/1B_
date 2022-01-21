@@ -109,7 +109,9 @@ MonoBehaviour:
   controller: {fileID: 114231493902538710}
   animator: {fileID: 95975118031919256}
   jumpKey: 32
-  runSpeed: 50
+  sprintKey: 304
+  runSpeed: 20
+  sprintModifier: 2
 --- !u!212 &212971026275759962
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -201,7 +203,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &70405055242815152
 CapsuleCollider2D:
