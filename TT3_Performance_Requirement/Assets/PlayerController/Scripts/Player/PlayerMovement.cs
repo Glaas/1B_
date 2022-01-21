@@ -8,9 +8,11 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     public Animator animator;
     public KeyCode jumpKey;
+    public KeyCode sprintKey;
 
     //public so can be affected by external factors
     public float runSpeed = 40f;
+    public float sprintModifier = 2f;
 
     //These two values are fields so the input can be gathered in Update and applied in FixedUpdate
     private float _horizontalMovDir = 0f;
@@ -18,10 +20,29 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        _horizontalMovDir = Input.GetAxisRaw("Horizontal") * runSpeed;
+
+
+        SprintCheck(out _horizontalMovDir);
+
+
+
+
         animator.SetFloat("Speed", Mathf.Abs(_horizontalMovDir));
         if (Input.GetKeyDown(jumpKey)) jump = true;
         FlipSprite(_horizontalMovDir);
+    }
+    void SprintCheck(out float movDir)
+    {
+        if (Input.GetKey(sprintKey))
+        {
+            movDir = Input.GetAxisRaw("Horizontal") * runSpeed * sprintModifier;
+            animator.speed = 2.5f;
+        }
+        else
+        {
+            movDir = Input.GetAxisRaw("Horizontal") * runSpeed;
+            animator.speed = 1.15f;
+        }
     }
 
     void FixedUpdate()
