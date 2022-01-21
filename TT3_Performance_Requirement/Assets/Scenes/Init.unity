@@ -171,8 +171,6 @@ MonoBehaviour:
   UISceneName: UIScene
   MusicSceneName: MusicScene
   CurrentLevelName: 
-  NextLevelName: 
-  PreviousLevelName: 
   LevelNames:
   - Level1
   - Level2
