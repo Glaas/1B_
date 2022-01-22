@@ -172,5 +172,6 @@ MonoBehaviour:
   MusicSceneName: MusicScene
   CurrentLevelName: 
   LevelNames:
+  - MainMenu
   - Level1
   - Level2
