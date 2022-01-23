@@ -163,6 +163,10 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7406031522181453712, guid: 38516900c5808064aaf712a67dc37a25, type: 3}
+      propertyPath: value
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8986905321499520770, guid: 38516900c5808064aaf712a67dc37a25, type: 3}
       propertyPath: m_Name
       value: coin_gold

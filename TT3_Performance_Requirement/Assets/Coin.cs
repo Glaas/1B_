@@ -31,6 +31,7 @@ public class Coin : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             //Add the value of the coin to the player's score
+            PlayerStats.instance.AddCoins(value);
             //Make coin non-interactable for the duration of effects to play
             GetComponentInChildren<SpriteRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
