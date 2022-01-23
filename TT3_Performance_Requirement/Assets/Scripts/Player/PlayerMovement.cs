@@ -17,10 +17,15 @@ public class PlayerMovement : MonoBehaviour
     //These two values are fields so the input can be gathered in Update and applied in FixedUpdate
     private float _horizontalMovDir = 0f;
     private bool jump = false;
+    public bool canMove = true;
 
     void Update()
     {
-
+        if (!canMove)
+        {
+            _horizontalMovDir = 0f;
+            return;
+        }
 
         SprintCheck(out _horizontalMovDir);
 
