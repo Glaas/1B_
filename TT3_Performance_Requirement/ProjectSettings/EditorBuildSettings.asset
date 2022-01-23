@@ -12,15 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/UIScene.unity
     guid: 14343cdfdc1dd794d9856ba0b11432de
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/GameLevels/MainMenu.unity
     guid: 6e2d0e85036e6a94289d9a5799da2bd6
   - enabled: 1
     path: Assets/Scenes/MusicScene.unity
     guid: e868c235462d26a40bed459dbfceff49
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/CreditsScene.unity
+    guid: 30334d90e10beaa459bf9decf6c86518
+  - enabled: 1
+    path: Assets/Scenes/GameLevels/Level1.unity
     guid: 308d3a51160410f45838aaf561759052
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/GameLevels/Level2.unity
     guid: 462ab0d1393dc614996916a80e0a155f
   m_configObjects: {}

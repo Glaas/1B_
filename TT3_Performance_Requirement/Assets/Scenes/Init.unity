@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70bd35bcd179fd14cb90c8f7d5223db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _coins: 0
+  _lives: 0
 --- !u!4 &1361468500
 Transform:
   m_ObjectHideFlags: 0
@@ -219,3 +221,4 @@ MonoBehaviour:
   - MainMenu
   - Level1
   - Level2
+  - CreditsScene
