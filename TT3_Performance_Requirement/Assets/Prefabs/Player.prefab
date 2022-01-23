@@ -218,7 +218,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.1425766}
+  m_Offset: {x: 0, y: -0.085}
   m_Size: {x: 0.5, y: 0.73515314}
   m_Direction: 0
 --- !u!1 &1393053470196254
