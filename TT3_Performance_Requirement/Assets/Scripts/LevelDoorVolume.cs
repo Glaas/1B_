@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class LevelDoorVolume : MonoBehaviour
 {
-    //Editor code//
-    [HideInInspector]
-    public string scenePath;
-    //Editor code//
-    public string levelToLoad;
+    [SerializeField]
+    private string levelToLoad;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            StartCoroutine(SceneLoader.instance.SceneTransition(levelToLoad));
-        }
-
+        //On contact, transitions to the next scene
+        if (other.gameObject.CompareTag("Player")) StartCoroutine(SceneLoader.instance.SceneTransition(levelToLoad));
     }
 }

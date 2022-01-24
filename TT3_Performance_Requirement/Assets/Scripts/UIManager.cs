@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
     }
     public void UpdateCoinsText()
     {
-        coinsText.text = "$ = " + PlayerStats.instance._coins;
+        coinsText.text = "$ = " + PlayerStats.instance.coinsHeld;
         StartCoroutine(CoinTextFeedback(1));
     }
     IEnumerator CoinTextFeedback(float duration)

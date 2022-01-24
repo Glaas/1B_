@@ -5,22 +5,26 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController2D controller;
-    public Animator animator;
-    public KeyCode jumpKey;
-    public KeyCode sprintKey;
+    [SerializeField]
+    private Animator animator;
+    [SerializeField]
+    private KeyCode jumpKey;
+    [SerializeField]
+    private KeyCode sprintKey;
 
     //public so can be affected by external factors
+    public CharacterController2D controller;
     public float runSpeed = 40f;
     public float sprintModifier = 2f;
+    public bool canMove = true;
 
     //These two values are fields so the input can be gathered in Update and applied in FixedUpdate
     private float _horizontalMovDir = 0f;
     private bool jump = false;
-    public bool canMove = true;
 
     void Update()
     {
+        //Prevents imput, can be set from other classes
         if (!canMove)
         {
             _horizontalMovDir = 0f;
@@ -29,15 +33,14 @@ public class PlayerMovement : MonoBehaviour
 
         SprintCheck(out _horizontalMovDir);
 
-
-
-
         animator.SetFloat("Speed", Mathf.Abs(_horizontalMovDir));
         if (Input.GetKeyDown(jumpKey)) jump = true;
         FlipSprite(_horizontalMovDir);
     }
+    //When gathering input, check if the player is sprinting
     void SprintCheck(out float movDir)
     {
+        //If the player is sprinting, multiply the movement speed by the sprint modifier
         if (Input.GetKey(sprintKey))
         {
             movDir = Input.GetAxisRaw("Horizontal") * runSpeed * sprintModifier;

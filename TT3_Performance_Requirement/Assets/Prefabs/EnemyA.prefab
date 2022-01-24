@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6859109618272376229}
   - component: {fileID: 6859109618272376227}
-  - component: {fileID: 6859109618272376228}
   - component: {fileID: 6859109618272376226}
+  - component: {fileID: 8421018057509336032}
   m_Layer: 7
   m_Name: Weakpoint
   m_TagString: Untagged
@@ -56,19 +56,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &6859109618272376228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6859109618272376230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 766dd81574a97dc4aab9858e38c3351b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 50
 --- !u!82 &6859109618272376226
 AudioSource:
   m_ObjectHideFlags: 0
@@ -165,6 +152,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8421018057509336032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859109618272376230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7024bc7acedee4b44a3b6fde597d8c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6859109618283266809
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,3 +540,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a8630005e86e7489be9212d5c9772a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killPlayerInOneHit: 0

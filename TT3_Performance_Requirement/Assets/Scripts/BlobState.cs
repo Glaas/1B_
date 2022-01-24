@@ -5,33 +5,24 @@ using UnityEngine;
 
 public class BlobState : MonoBehaviour
 {
+    //Can be adjusted from inspector or set by other classes
     [Range(0, 10)]
     public float movementSpeed = 1f;
-    // Start is called before the first frame update
 
     public bool isAlive = true;
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        //move left every frame
-        if (isAlive)
-        {
-            transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-        }
-
+        //move left every frame if alive
+        if (isAlive) transform.position += Vector3.left * movementSpeed * Time.deltaTime;
     }
 
     public void BlobDeath()
     {
-        Destroy(gameObject,5f);
+        Destroy(gameObject, 5f);
         GetComponent<AudioSource>().Play();
         BlobDeathAnimation();
     }
+    //Deactive all colliders and uses the Rigidbody2D to create a mario-like death animation
     void BlobDeathAnimation()
     {
         isAlive = false;
@@ -39,14 +30,11 @@ public class BlobState : MonoBehaviour
         {
             collider.enabled = false;
         }
-
         Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
         rb2d.bodyType = RigidbodyType2D.Dynamic;
         rb2d.simulated = true;
         rb2d.gravityScale = 2.5f;
         rb2d.AddForce(new Vector2(2, 7), ForceMode2D.Impulse);
         rb2d.AddTorque(-5, ForceMode2D.Impulse);
-
-
     }
 }

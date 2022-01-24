@@ -1,14 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CreditsScene : MonoBehaviour
 {
-    public float timeBeforeSceneChange = 5;
-    void Start()
-    {
-        //play credits music
-    }
+    [SerializeField]
+    private float timeBeforeSceneChange = 5;
+    private bool hasTransitionStarted = false;
+
     private void Update()
     {
         Timer();
@@ -16,8 +13,10 @@ public class CreditsScene : MonoBehaviour
     void Timer()
     {
         timeBeforeSceneChange -= Time.deltaTime;
-        if (timeBeforeSceneChange <= 0)
+        if (timeBeforeSceneChange <= 0 && !hasTransitionStarted)
         {
+            //This bool ensures the coroutine only runs once
+            hasTransitionStarted = true;
             StartCoroutine(SceneLoader.instance.SceneTransition("MainMenu"));
         }
     }

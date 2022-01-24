@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public int value;
-    private float delayBeforeDestroy;
-
     private AudioSource audioSource;
     private ParticleSystem ps;
+
+    [SerializeField]
+    private int value;
+    private float delayBeforeDestroy;
 
     private void Awake()
     {
@@ -20,10 +21,7 @@ public class Coin : MonoBehaviour
     {
         //Determine how long the coin will stay on screen before being destroyed
         delayBeforeDestroy = GetComponent<ParticleSystem>().main.duration;
-        if (GetComponent<AudioSource>().clip.length > delayBeforeDestroy)
-        {
-            delayBeforeDestroy = GetComponent<AudioSource>().clip.length;
-        }
+        if (GetComponent<AudioSource>().clip.length > delayBeforeDestroy) delayBeforeDestroy = GetComponent<AudioSource>().clip.length;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,8 +37,6 @@ public class Coin : MonoBehaviour
             GetComponent<AudioSource>().Play();
             //Play particle system
             GetComponent<ParticleSystem>().Play();
-
-
             //Destroy the coin after a while
             Destroy(gameObject, delayBeforeDestroy);
         }

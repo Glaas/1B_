@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    //Singleton pattern to ensure only one instance of the player stats exists
     public static PlayerStats instance;
 
-    public int _coins;
+    //These three fields needs to be public because they will be read and written from other classes
+    public int coinsHeld;
     public bool hasFireballs;
     public bool hasGroundStomp;
 
@@ -23,25 +25,24 @@ public class PlayerStats : MonoBehaviour
     }
     private void Start()
     {
-        _coins = 0;
+        //Make sure player starts at zero
+        coinsHeld = 0;
         hasFireballs = false;
         hasGroundStomp = false;
     }
     public void TakeDamage(bool killInOneHit = false)
     {
-        Debug.Log("Player took damage");
+        //If the player has one upgrade, disable it, unless the damage kills in one hit, like spikes
         if (!killInOneHit)
         {
             if (hasFireballs || hasGroundStomp)
             {
-
                 hasFireballs = false;
                 hasGroundStomp = false;
                 return;
             }
         }
         StartCoroutine(DeathSequence());
-
     }
     IEnumerator DeathSequence()
     {
@@ -53,7 +54,7 @@ public class PlayerStats : MonoBehaviour
         yield return new WaitForSeconds(.1f);
         playerRigidbody.GetComponent<Animator>().SetTrigger("Death");
         yield return new WaitForSeconds(1f);
-        yield return StartCoroutine(CheckpointManager.instance.TakePlayerToLastCheckpoint(2));
+        yield return StartCoroutine(CheckpointManager.instance.TakePlayerToLastCheckpoint(1.2f));
         yield return new WaitForSeconds(1f);
 
         playerRigidbody.isKinematic = false;
@@ -65,7 +66,7 @@ public class PlayerStats : MonoBehaviour
 
     public void AddCoins(int amount)
     {
-        _coins += amount;
+        coinsHeld += amount;
         UIManager.instance.UpdateCoinsText();
     }
 
