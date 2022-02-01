@@ -12,6 +12,7 @@ public class SceneLoader : MonoBehaviour
     public string CurrentLevelName;
     public string[] LevelNames;
 
+
     public static SceneLoader instance;
 
     private void Awake()
