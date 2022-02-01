@@ -46,6 +46,8 @@ public class PlayerStats : MonoBehaviour
     }
     IEnumerator DeathSequence()
     {
+        PlayerSFX.instance.PlaySFX(PlayerSFX.instance.playerDeath);
+
         FindObjectOfType<PlayerMovement>().canMove = false;
         Rigidbody2D playerRigidbody = FindObjectOfType<PlayerMovement>().GetComponent<Rigidbody2D>();
 
@@ -60,6 +62,7 @@ public class PlayerStats : MonoBehaviour
         playerRigidbody.isKinematic = false;
         FindObjectOfType<PlayerMovement>().canMove = true;
         playerRigidbody.GetComponent<Animator>().SetTrigger("Raise");
+        PlayerSFX.instance.PlaySFX(PlayerSFX.instance.playerRaise);
 
 
     }

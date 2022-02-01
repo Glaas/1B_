@@ -37,7 +37,7 @@ public class CheckpointManager : MonoBehaviour
         {
             time += Time.deltaTime;
             float T = time / duration;
-            player.transform.position = Vector2.Lerp(playerPosition, spawnPoint, lerpEasingCurve.Evaluate(T));
+            player.transform.position = Vector2.Lerp(playerPosition, spawnPoint + Vector2.up, lerpEasingCurve.Evaluate(T));
             yield return null;
         }
     }

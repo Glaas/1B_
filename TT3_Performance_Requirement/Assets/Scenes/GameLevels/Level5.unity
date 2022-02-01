@@ -34205,6 +34205,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 5563125921392039618, guid: 52c234557688eb246b8f72ea53a155f9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5563125921392039619, guid: 52c234557688eb246b8f72ea53a155f9, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -34253,13 +34257,22 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 74652767}
+    - target: {fileID: 5563125923337383338, guid: 52c234557688eb246b8f72ea53a155f9, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.3333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5563125923337383338, guid: 52c234557688eb246b8f72ea53a155f9, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5563125923422712291, guid: 52c234557688eb246b8f72ea53a155f9, type: 3}
       propertyPath: orthographic size
-      value: 4.8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5563125923422712291, guid: 52c234557688eb246b8f72ea53a155f9, type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0.42541456
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5563125923422712094, guid: 52c234557688eb246b8f72ea53a155f9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 52c234557688eb246b8f72ea53a155f9, type: 3}

@@ -61,6 +61,7 @@ public class CharacterController2D : MonoBehaviour
                 animator.SetBool("JumpUp", true);
                 dustMotesPS.Play();
                 trailPS.Play();
+                PlayerSFX.instance.PlaySFX(PlayerSFX.instance.playerJump);
             }
             else
             {

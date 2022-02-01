@@ -8,9 +8,11 @@ public class Checkpoint : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            if (CheckpointManager.instance.spawnPoint == (Vector2)transform.position) return;
             //When player touches the checkoint, set as latest checkpoint and activate fire
             CheckpointManager.instance.SetNewCheckpoint(transform.position);
             EnableFire();
+            GetComponent<AudioSource>().Play();
         }
     }
     //Enable or disable the animation of the fire

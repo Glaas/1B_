@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70bd35bcd179fd14cb90c8f7d5223db6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coins: 0
+  coinsHeld: 0
   hasFireballs: 0
   hasGroundStomp: 0
 --- !u!4 &1361468500
@@ -183,27 +183,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fd6898b5fb0e640b669f0dcfabec72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPoint: {x: 0, y: 0}
-  _spawnCurve:
+  spawnPoint: {x: 0, y: 0}
+  lerpEasingCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: -0.004678634
-      outSlope: -0.004678634
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
-      weightedMode: 3
+      weightedMode: 0
       inWeight: 0
-      outWeight: 0.5040981
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -0
-      outSlope: -0
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.50000024
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
