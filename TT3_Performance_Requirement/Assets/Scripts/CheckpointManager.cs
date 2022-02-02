@@ -50,6 +50,7 @@ public class CheckpointManager : MonoBehaviour
     //This makes sure to set a default spawn point when a new scene is loaded
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (!FindObjectOfType<Checkpoint>()) return;//Don't do anything if there is no checkpoint in the scene
         SetNewCheckpoint(GameObject.FindGameObjectWithTag("Player").transform.position);
     }
     void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
