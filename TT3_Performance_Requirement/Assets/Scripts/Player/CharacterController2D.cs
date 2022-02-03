@@ -27,7 +27,7 @@ public class CharacterController2D : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb2D;
     private Vector3 velocity = Vector3.zero;
-    const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+    const float k_GroundedRadius = .1f; // Radius of the overlap circle to determine if grounded
     private float limitFallSpeed = 25f; // Limit fall speed
 
     private void FixedUpdate()

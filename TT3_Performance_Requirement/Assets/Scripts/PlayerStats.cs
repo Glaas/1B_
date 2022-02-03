@@ -9,8 +9,11 @@ public class PlayerStats : MonoBehaviour
 
     //These three fields needs to be public because they will be read and written from other classes
     public int coinsHeld;
+    public bool hasGrown;
     public bool hasFireballs;
     public bool hasGroundStomp;
+    public bool canTakeDamage = true;
+
 
     private void Awake()
     {
@@ -27,11 +30,14 @@ public class PlayerStats : MonoBehaviour
     {
         //Make sure player starts at zero
         coinsHeld = 0;
+        canTakeDamage = true;
+        hasGrown = false;
         hasFireballs = false;
         hasGroundStomp = false;
     }
     public void TakeDamage(bool killInOneHit = false)
     {
+        if (!canTakeDamage) return;
         //If the player has one upgrade, disable it, unless the damage kills in one hit, like spikes
         if (!killInOneHit)
         {
@@ -39,10 +45,23 @@ public class PlayerStats : MonoBehaviour
             {
                 hasFireballs = false;
                 hasGroundStomp = false;
+                canTakeDamage = false;
+                GetComponent<PlayerUpgradeState>().ShrinkPlayer();
+                PlayerSFX.instance.PlaySFX(PlayerSFX.instance.playerHurt);
+                StartCoroutine(InvincibilitySequence());
                 return;
             }
         }
         StartCoroutine(DeathSequence());
+    }
+    public IEnumerator InvincibilitySequence()
+    {
+        PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
+
+        playerMovement.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(.5f);
+        canTakeDamage = true;
+        playerMovement.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
     IEnumerator DeathSequence()
     {

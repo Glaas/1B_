@@ -88,7 +88,7 @@ MonoBehaviour:
   m_AirControl: 1
   groundLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1024
   groundCheck: {fileID: 4291727345091452}
   isGrounded: 0
   canMove: 1
@@ -106,12 +106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8644d33345e77614ba3ace9c18398d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 114231493902538710}
   animator: {fileID: 95975118031919256}
   jumpKey: 32
   sprintKey: 304
+  controller: {fileID: 114231493902538710}
   runSpeed: 20
   sprintModifier: 2
+  canMove: 1
 --- !u!212 &212971026275759962
 SpriteRenderer:
   m_ObjectHideFlags: 0

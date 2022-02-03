@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5125639529019300648}
   - component: {fileID: 5125639529019300651}
   - component: {fileID: 5125639529019300650}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platform_Oneway
   m_TagString: Untagged
   m_Icon: {fileID: 0}

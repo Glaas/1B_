@@ -153,7 +153,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a6d87626be57c024880842b8f64da354, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -267,6 +267,8 @@ MonoBehaviour:
   playerDeath: {fileID: 8300000, guid: 63412aafa5d5b3b4a997af6fe218767d, type: 3}
   playerRaise: {fileID: 8300000, guid: 03685453ef7b2814384bf2e901b4a8b1, type: 3}
   playerJump: {fileID: 8300000, guid: 14eed16449b838043bb2b4f6ba0d539b, type: 3}
+  playerHurt: {fileID: 8300000, guid: f57d436584de7d64f8420f4ddd4d7d77, type: 3}
+  playerPickupUpgrade: {fileID: 8300000, guid: b89d5ed311793bd4ca486f8b69ae04f6, type: 3}
 --- !u!1 &1378946432
 GameObject:
   m_ObjectHideFlags: 0
