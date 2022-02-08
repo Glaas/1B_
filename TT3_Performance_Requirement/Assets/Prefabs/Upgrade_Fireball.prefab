@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1359054617080463794}
   - component: {fileID: 1359054617080463795}
   m_Layer: 0
-  m_Name: FireballPickup
+  m_Name: Upgrade_Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
