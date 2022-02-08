@@ -9,6 +9,15 @@ public class UIManager : MonoBehaviour
     public Image fader;
     private TextMeshProUGUI coinsText;
     public AnimationCurve fadeCurve;
+    public AnimationCurve spriteTweenCurve;
+
+    [SerializeField]
+    private Sprite fireBallsUpgradeSprite;
+    [SerializeField]
+    private Sprite groundStompUpgradeSprite;
+
+    [SerializeField]
+    private Image upgradeSpriteDisplay;
 
     //Allow only one instance of the manager to exist (Singleton pattern)
     private void Awake()
@@ -23,6 +32,7 @@ public class UIManager : MonoBehaviour
         }
         if (coinsText == null) coinsText = GameObject.Find("CoinsText").GetComponent<TextMeshProUGUI>();
         if (fader == null) fader = GameObject.Find("Fader").GetComponent<Image>();
+        if (upgradeSpriteDisplay == null) upgradeSpriteDisplay = GameObject.Find("UpgradeDisplay").GetComponent<Image>();
 
     }
 
@@ -55,6 +65,32 @@ public class UIManager : MonoBehaviour
             yield return null;
         }
     }
+
+    public void UpdateUpgradeSprite(string upgrade, bool enable)
+    {
+        if (upgrade == "fireballs")
+        {
+            upgradeSpriteDisplay.sprite = fireBallsUpgradeSprite;
+        }
+        else if (upgrade == "groundstomp")
+        {
+            upgradeSpriteDisplay.sprite = groundStompUpgradeSprite;
+        }
+        StartCoroutine(UpgradeSpriteFeedback(1, enable));
+    }
+
+    IEnumerator UpgradeSpriteFeedback(float duration, bool enable)
+    {
+        float time = 0;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            if (enable) upgradeSpriteDisplay.rectTransform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, spriteTweenCurve.Evaluate(time / duration));
+            else upgradeSpriteDisplay.rectTransform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, spriteTweenCurve.Evaluate(time / duration));
+            yield return null;
+        }
+    }
+
 
 
 }

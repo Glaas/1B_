@@ -7,6 +7,11 @@ public class PlayerStats : MonoBehaviour
     //Singleton pattern to ensure only one instance of the player stats exists
     public static PlayerStats instance;
 
+
+    //event on pickup
+    public delegate void OnPickup();
+    public static event OnPickup onPickup;
+
     //These three fields needs to be public because they will be read and written from other classes
     public int coinsHeld;
     public bool hasGrown;
@@ -49,6 +54,7 @@ public class PlayerStats : MonoBehaviour
                 GetComponent<PlayerUpgradeState>().ShrinkPlayer();
                 PlayerSFX.instance.PlaySFX(PlayerSFX.instance.playerHurt);
                 StartCoroutine(InvincibilitySequence());
+                UIManager.instance.UpdateUpgradeSprite(string.Empty, false);
                 return;
             }
         }
@@ -89,7 +95,6 @@ public class PlayerStats : MonoBehaviour
     public void AddCoins(int amount)
     {
         coinsHeld += amount;
-        UIManager.instance.UpdateCoinsText();
     }
 
 }

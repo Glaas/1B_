@@ -9,7 +9,6 @@ public class PlayerUpgradeState : MonoBehaviour
     private Vector3 originalScale = new Vector3(1, 1, 1);
     private Vector3 grownScale = new Vector3(1.25f, 1.5f, 1);
 
-
     private void Awake()
     {
         if (instance == null)
@@ -27,17 +26,20 @@ public class PlayerUpgradeState : MonoBehaviour
     {
         if (playerStats.hasFireballs) return;
         playerStats.hasFireballs = true;
+        playerStats.hasGroundStomp = false;
         GrowPlayer();
     }
     public void UpgradeGroundStomp()
     {
         if (playerStats.hasGroundStomp) return;
         playerStats.hasGroundStomp = true;
+        playerStats.hasFireballs = false;
         GrowPlayer();
     }
     public void GrowPlayer()
     {
         playerStats.hasGrown = true;
+        UIManager.instance.UpdateUpgradeSprite(playerStats.hasFireballs == true ? "fireballs" : "groundstomp", true);
         FindObjectOfType<PlayerMovement>().transform.localScale = grownScale;
     }
     public void ShrinkPlayer()
