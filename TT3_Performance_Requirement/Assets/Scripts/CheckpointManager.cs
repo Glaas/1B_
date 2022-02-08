@@ -56,6 +56,10 @@ public class CheckpointManager : MonoBehaviour
     void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
     void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
 
-
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(spawnPoint, 0.5f);
+    }
 }
+

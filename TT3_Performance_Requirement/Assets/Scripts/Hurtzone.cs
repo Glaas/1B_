@@ -20,16 +20,25 @@ public class Hurtzone : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (player.isGrounded)
+            if (GetComponent<UnityEngine.Tilemaps.Tilemap>())
             {
                 playerRB.velocity = Vector2.zero;
-
                 PlayerStats.instance.TakeDamage(killPlayerInOneHit);
-                StartCoroutine(PlayerKnockback(other.gameObject.transform.position, other.gameObject));
+
             }
-            else if (!player.isGrounded)
+            else
             {
-                EnemyDeath();
+                if (player.isGrounded)
+                {
+                    playerRB.velocity = Vector2.zero;
+
+                    PlayerStats.instance.TakeDamage(killPlayerInOneHit);
+                    StartCoroutine(PlayerKnockback(other.gameObject.transform.position, other.gameObject));
+                }
+                else if (!player.isGrounded)
+                {
+                    EnemyDeath();
+                }
             }
         }
     }
