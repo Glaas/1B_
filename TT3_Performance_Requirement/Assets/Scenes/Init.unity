@@ -135,6 +135,8 @@ GameObject:
   - component: {fileID: 1361468499}
   - component: {fileID: 1361468501}
   - component: {fileID: 1361468502}
+  - component: {fileID: 1361468504}
+  - component: {fileID: 1361468503}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -223,6 +225,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff02fcda9fbaae34fa35204d97daef6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1361468503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361468498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72513443d6c6bb14d8b214dd91086175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerKey: 101
+  isActive: 0
+  cooldownDelay: 3
+--- !u!114 &1361468504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361468498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf61c0efac2d314380a4e7426021d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerKey: 101
+  isActive: 1
+  cooldownDelay: 1
 --- !u!1 &1715476136
 GameObject:
   m_ObjectHideFlags: 0
