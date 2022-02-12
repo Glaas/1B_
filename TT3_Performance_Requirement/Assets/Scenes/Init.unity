@@ -255,6 +255,7 @@ MonoBehaviour:
   powerKey: 101
   isActive: 1
   cooldownDelay: 1
+  fireballPrefab: {fileID: 3817348958342373703, guid: 8e0eea7239010fd43a3fccb3877c2050, type: 3}
 --- !u!1 &1715476136
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,4 +311,5 @@ MonoBehaviour:
   - Level3
   - Level4
   - Level5
+  - Level6
   - CreditsScene

@@ -60,6 +60,12 @@ public class InitLoader
         sceneName = "Level5";
         LoadMyScene(sceneName);
     }
+    [MenuItem("Load Scenes/Game scenes/ Load Level 6")]
+    static void LoadLevel6()
+    {
+        sceneName = "Level6";
+        LoadMyScene(sceneName);
+    }
     public static void LoadMyScene(string sceneName)
     {
         if (!EditorSceneManager.GetSceneByName(sceneName).isLoaded)

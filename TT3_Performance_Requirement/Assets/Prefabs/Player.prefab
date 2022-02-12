@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 95975118031919256}
   - component: {fileID: 50738830109512580}
   - component: {fileID: 70405055242815152}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -113,6 +113,7 @@ MonoBehaviour:
   runSpeed: 20
   sprintModifier: 2
   canMove: 1
+  isPlayerFacingRight: 0
 --- !u!212 &212971026275759962
 SpriteRenderer:
   m_ObjectHideFlags: 0

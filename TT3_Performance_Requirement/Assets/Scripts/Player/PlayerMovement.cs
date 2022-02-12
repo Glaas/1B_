@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 40f;
     public float sprintModifier = 2f;
     public bool canMove = true;
-
+    public bool isPlayerFacingRight;
     //These two values are fields so the input can be gathered in Update and applied in FixedUpdate
     private float _horizontalMovDir = 0f;
     private bool jump = false;
@@ -60,5 +60,12 @@ public class PlayerMovement : MonoBehaviour
         jump = false;
     }
     //Being passed the movement direction, this method will flip the sprite to face the direction of movement
-    private void FlipSprite(float horizontalMovDir) { if (horizontalMovDir != 0) GetComponent<SpriteRenderer>().flipX = horizontalMovDir < 0 ? true : false; }
+    private void FlipSprite(float horizontalMovDir)
+    {
+        if (horizontalMovDir != 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = horizontalMovDir < 0 ? true : false;
+            isPlayerFacingRight = horizontalMovDir < 0 ? false : true;
+        }
+    }
 }
