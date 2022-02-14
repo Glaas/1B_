@@ -16,7 +16,13 @@ public class Fireball : MonoBehaviour
             if (other.gameObject.GetComponent<BlobState>())
             {
                 other.gameObject.GetComponent<BlobState>().BlobDeath();
+                Destroy(gameObject);
             }
+        }
+        if (other.gameObject.GetComponent<Destructible>())
+        {
+            Destroy(gameObject);
+
         }
     }
 }

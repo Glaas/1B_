@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PowerUp_GroundStomp : PowerUp_Base
 {
+    public LayerMask layersAffectedByGroundStomp;
     public override void UsePowerUp()
     {
         base.UsePowerUp();
@@ -28,7 +29,7 @@ public class PowerUp_GroundStomp : PowerUp_Base
 
 
         Vector3 startPos = player.transform.position;
-        Vector3 impactPoint = Physics2D.Raycast(player.transform.position, Vector2.down, float.MaxValue, 1 << LayerMask.NameToLayer("Ground")).point + Vector2.up * playerColliderHeight;
+        Vector3 impactPoint = Physics2D.Raycast(player.transform.position, Vector2.down, float.MaxValue, layersAffectedByGroundStomp).point + Vector2.up * playerColliderHeight;
 
         float distance = Vector3.Distance(startPos, impactPoint);
         yield return new WaitForSeconds(.85f);

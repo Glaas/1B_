@@ -157,9 +157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsHeld: 0
-  hasGrown: 0
-  hasFireballs: 0
-  hasGroundStomp: 0
   canTakeDamage: 1
 --- !u!4 &1361468500
 Transform:
@@ -225,6 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff02fcda9fbaae34fa35204d97daef6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasGrown: 0
+  hasFireballs: 0
+  hasGroundStomp: 0
 --- !u!114 &1361468503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +241,9 @@ MonoBehaviour:
   powerUpUsedSFX: {fileID: 8300000, guid: a73167644fe76e1449fab97cf0961033, type: 3}
   isActive: 1
   cooldownDelay: 3
+  layersAffectedByGroundStomp:
+    serializedVersion: 2
+    m_Bits: 1937
 --- !u!114 &1361468504
 MonoBehaviour:
   m_ObjectHideFlags: 0
