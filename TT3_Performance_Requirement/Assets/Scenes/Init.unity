@@ -238,7 +238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerKey: 101
-  isActive: 0
+  powerUpUsedSFX: {fileID: 8300000, guid: a73167644fe76e1449fab97cf0961033, type: 3}
+  isActive: 1
   cooldownDelay: 3
 --- !u!114 &1361468504
 MonoBehaviour:
@@ -253,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerKey: 101
+  powerUpUsedSFX: {fileID: 8300000, guid: 74e94255560845a47a2366793c741d11, type: 3}
   isActive: 1
   cooldownDelay: 1
   fireballPrefab: {fileID: 3817348958342373703, guid: 8e0eea7239010fd43a3fccb3877c2050, type: 3}
@@ -312,4 +314,9 @@ MonoBehaviour:
   - Level4
   - Level5
   - Level6
+  - Level7
+  - Level8
+  - Level9
+  - Level10
+  - Level11
   - CreditsScene

@@ -6,6 +6,13 @@ public class PlayerUpgradeState : MonoBehaviour
     public static PlayerUpgradeState instance;
     private PlayerStats playerStats;
 
+    private PowerUp_Fireballs fireballClass;
+    private PowerUp_GroundStomp groundStompClass;
+
+    public bool hasGrown = false;
+    public bool hasFireballs = false;
+    public bool hasGroundStomp = false;
+
     private Vector3 originalScale = new Vector3(1, 1, 1);
     private Vector3 grownScale = new Vector3(1.25f, 1.5f, 1);
 
@@ -20,31 +27,46 @@ public class PlayerUpgradeState : MonoBehaviour
             Destroy(gameObject);
         }
         playerStats = GetComponent<PlayerStats>();
+        fireballClass = GetComponent<PowerUp_Fireballs>();
+        groundStompClass = GetComponent<PowerUp_GroundStomp>();
+
+        fireballClass.enabled = false;
+        groundStompClass.enabled = false;
+
+        hasGrown = false;
+        hasFireballs = false;
+        hasGroundStomp = false;
     }
 
     public void UpgradeFireball()
     {
-        if (playerStats.hasFireballs) return;
-        playerStats.hasFireballs = true;
-        playerStats.hasGroundStomp = false;
+        if (hasFireballs) return;
+        fireballClass.enabled = true;
+        hasFireballs = true;
+
+        groundStompClass.enabled = false;
+        hasGroundStomp = false;
         GrowPlayer();
     }
     public void UpgradeGroundStomp()
     {
-        if (playerStats.hasGroundStomp) return;
-        playerStats.hasGroundStomp = true;
-        playerStats.hasFireballs = false;
+        if (hasGroundStomp) return;
+        hasGroundStomp = true;
+        groundStompClass.enabled = true;
+
+        hasFireballs = false;
+        fireballClass.enabled = false;
         GrowPlayer();
     }
     public void GrowPlayer()
     {
-        playerStats.hasGrown = true;
-        UIManager.instance.UpdateUpgradeSprite(playerStats.hasFireballs == true ? "fireballs" : "groundstomp", true);
+        hasGrown = true;
+        UIManager.instance.UpdateUpgradeSprite(hasFireballs == true ? "fireballs" : "groundstomp", true);
         FindObjectOfType<PlayerMovement>().transform.localScale = grownScale;
     }
     public void ShrinkPlayer()
     {
-        playerStats.hasGrown = false;
+        hasGrown = false;
         FindObjectOfType<PlayerMovement>().transform.localScale = originalScale;
     }
 

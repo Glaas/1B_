@@ -72,6 +72,18 @@ public class InitLoader
         sceneName = "Level7";
         LoadMyScene(sceneName);
     }
+    [MenuItem("Load Scenes/Game scenes/ Load Level 8")]
+    static void LoadLevel8()
+    {
+        sceneName = "Level8";
+        LoadMyScene(sceneName);
+    }
+    [MenuItem("Load Scenes/Game scenes/ Load Level 9")]
+    static void LoadLevel9()
+    {
+        sceneName = "Level9";
+        LoadMyScene(sceneName);
+    }
     [MenuItem("Load Scenes/Open SceneLoader editor")]
     static void OpenInitLoaderScript()
     {

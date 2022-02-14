@@ -7,16 +7,10 @@ public class PlayerStats : MonoBehaviour
     //Singleton pattern to ensure only one instance of the player stats exists
     public static PlayerStats instance;
 
+    private PlayerUpgradeState playerUpgradeState;
 
-    //event on pickup
-    public delegate void OnPickup();
-    public static event OnPickup onPickup;
-
-    //These three fields needs to be public because they will be read and written from other classes
+    //These fields needs to be public because they will be read and written from other classes
     public int coinsHeld;
-    public bool hasGrown;
-    public bool hasFireballs;
-    public bool hasGroundStomp;
     public bool canTakeDamage = true;
 
 
@@ -30,15 +24,13 @@ public class PlayerStats : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        playerUpgradeState = GetComponent<PlayerUpgradeState>();
     }
     private void Start()
     {
         //Make sure player starts at zero
         coinsHeld = 0;
         canTakeDamage = true;
-        hasGrown = false;
-        hasFireballs = false;
-        hasGroundStomp = false;
     }
     public void TakeDamage(bool killInOneHit = false)
     {
@@ -46,10 +38,10 @@ public class PlayerStats : MonoBehaviour
         //If the player has one upgrade, disable it, unless the damage kills in one hit, like spikes
         if (!killInOneHit)
         {
-            if (hasFireballs || hasGroundStomp)
+            if (playerUpgradeState.hasFireballs || playerUpgradeState.hasGroundStomp)
             {
-                hasFireballs = false;
-                hasGroundStomp = false;
+                playerUpgradeState.hasFireballs = false;
+                playerUpgradeState.hasGroundStomp = false;
                 canTakeDamage = false;
                 GetComponent<PlayerUpgradeState>().ShrinkPlayer();
                 PlayerSFX.instance.PlaySFX(PlayerSFX.instance.playerHurt);
@@ -95,6 +87,7 @@ public class PlayerStats : MonoBehaviour
     public void AddCoins(int amount)
     {
         coinsHeld += amount;
+        UIManager.instance.UpdateCoinsText();
     }
 
 }

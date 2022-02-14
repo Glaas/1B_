@@ -7,6 +7,8 @@ public class PowerUp_Base : MonoBehaviour
 {
     [SerializeField]
     KeyCode powerKey = KeyCode.E;
+    [SerializeField]
+    private AudioClip powerUpUsedSFX;
 
     public bool isActive = false;
     public float cooldownDelay;
@@ -26,7 +28,12 @@ public class PowerUp_Base : MonoBehaviour
         Debug.Log(this + " Used");
 
     }
-    
+    public virtual void PlayPowerUpSFX()
+    {
+        Debug.Log(this + " Played");
+        PlayerSFX.instance.PlaySFX(powerUpUsedSFX);
+    }
+
     IEnumerator PowerUpCooldown()
     {
         yield return new WaitForSeconds(cooldownDelay);
