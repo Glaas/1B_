@@ -66,6 +66,17 @@ public class InitLoader
         sceneName = "Level6";
         LoadMyScene(sceneName);
     }
+    [MenuItem("Load Scenes/Game scenes/ Load Level 7")]
+    static void LoadLevel7()
+    {
+        sceneName = "Level7";
+        LoadMyScene(sceneName);
+    }
+    [MenuItem("Load Scenes/Open SceneLoader editor")]
+    static void OpenInitLoaderScript()
+    {
+        UnityEditorInternal.InternalEditorUtility.OpenFileAtLineExternal("Assets/Scripts/Editor/InitLoader.cs", 1);
+    }
     public static void LoadMyScene(string sceneName)
     {
         if (!EditorSceneManager.GetSceneByName(sceneName).isLoaded)
