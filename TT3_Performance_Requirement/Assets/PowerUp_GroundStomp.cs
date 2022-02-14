@@ -31,7 +31,7 @@ public class PowerUp_GroundStomp : PowerUp_Base
         Vector3 impactPoint = Physics2D.Raycast(player.transform.position, Vector2.down, float.MaxValue, 1 << LayerMask.NameToLayer("Ground")).point + Vector2.up * playerColliderHeight;
 
         float distance = Vector3.Distance(startPos, impactPoint);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.85f);
 
         float duration = distance / 50;
         float t = 0;
@@ -41,7 +41,20 @@ public class PowerUp_GroundStomp : PowerUp_Base
             player.transform.position = Vector3.Lerp(startPos, impactPoint, t / duration);
             yield return null;
         }
-        PlayerSFX.instance.PlaySFX(PlayerSFX.instance.playerRaise);
+        ScreenshakeManager.instance.ScreenShake(.6f);
+        PlayerSFX.instance.PlaySFX(PlayerSFX.instance.groundStomp);
+
+        foreach (Collider2D c in Physics2D.OverlapCircleAll(player.transform.position, 1.5f))
+        {
+            if (c.GetComponent<Destructible>())
+            {
+                c.GetComponent<Destructible>().TakeDamage();
+            }
+            if (c.GetComponent<BlobState>())
+            {
+                c.GetComponent<BlobState>().BlobDeath();
+            }
+        }
 
         yield return new WaitForSeconds(.1f);
 
@@ -50,4 +63,5 @@ public class PowerUp_GroundStomp : PowerUp_Base
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         player.GetComponent<Rigidbody2D>().isKinematic = false;
     }
+
 }
