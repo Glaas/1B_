@@ -79,11 +79,15 @@ public class InitLoader
     }
     public static void LoadMyScene(string sceneName)
     {
-        if (!EditorSceneManager.GetSceneByName(sceneName).isLoaded)
-            EditorSceneManager.OpenScene("Assets/Scenes/GameLevels/" + sceneName + ".unity", OpenSceneMode.Single);
-        LoadAll();
-        if (!EditorSceneManager.GetSceneByName("Init").isLoaded || !EditorSceneManager.GetSceneByName("UIScene").isLoaded || !EditorSceneManager.GetSceneByName("MusicScene").isLoaded)
-            Debug.LogError("Some of the mandatory scenes are not loaded. Make sure you have loaded all the mandatory scenes.");
+        //asks if user wants to save changes
+        if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+        {
+            if (!EditorSceneManager.GetSceneByName(sceneName).isLoaded)
+                EditorSceneManager.OpenScene("Assets/Scenes/GameLevels/" + sceneName + ".unity", OpenSceneMode.Single);
+            LoadAll();
+            if (!EditorSceneManager.GetSceneByName("Init").isLoaded || !EditorSceneManager.GetSceneByName("UIScene").isLoaded || !EditorSceneManager.GetSceneByName("MusicScene").isLoaded)
+                Debug.LogError("Some of the mandatory scenes are not loaded. Make sure you have loaded all the mandatory scenes.");
+        }
     }
     public static void UnloadAllScenes()
     {
