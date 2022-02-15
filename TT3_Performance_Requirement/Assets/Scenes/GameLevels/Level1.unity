@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 477608671}
   - component: {fileID: 477608675}
   - component: {fileID: 477608674}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1475,11 +1475,18 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'A & D
 
-    or
+    --
 
     Arrow keys
 
-    to move'
+    --
+
+    Left Joystick
+
+    --
+
+    to
+    move'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 47d6d94555b5127489709bfdd557a3ee, type: 2}
   m_sharedMaterial: {fileID: 2746858396651840462, guid: 47d6d94555b5127489709bfdd557a3ee, type: 2}

@@ -68,19 +68,15 @@ public class SceneLoader : MonoBehaviour
 
     public IEnumerator SceneTransition(string levelToLoad)
     {
-        print("SceneTransition to " + levelToLoad);
         yield return StartCoroutine(UIManager.instance.Fade("out", 1f));
         SceneManager.UnloadSceneAsync(CurrentLevelName);
-        print("Unloaded level: " + CurrentLevelName);
         SceneManager.LoadSceneAsync(levelToLoad, LoadSceneMode.Additive);
-        print("Loaded level: " + levelToLoad);
         CurrentLevelName = levelToLoad;
         yield return StartCoroutine(UIManager.instance.Fade("in", 1f));
-        print("transition complete");
     }
-    private void OnGUI()
-    {
+    // private void OnGUI()
+    // {
 
-        GUI.Label(new Rect(0, 15, 100, 100), "Current Level: " + CurrentLevelName);
-    }
+    //GUI.Label(new Rect(0, 15, 100, 100), "Current Level: " + CurrentLevelName);
+    // }
 }

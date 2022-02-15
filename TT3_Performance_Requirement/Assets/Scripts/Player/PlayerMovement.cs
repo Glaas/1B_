@@ -34,14 +34,14 @@ public class PlayerMovement : MonoBehaviour
         SprintCheck(out _horizontalMovDir);
 
         animator.SetFloat("Speed", Mathf.Abs(_horizontalMovDir));
-        if (Input.GetKeyDown(jumpKey)) jump = true;
+        if (Input.GetKeyDown(jumpKey)|| Input.GetButtonDown("Submit")) jump = true;
         FlipSprite(_horizontalMovDir);
     }
     //When gathering input, check if the player is sprinting
     void SprintCheck(out float movDir)
     {
         //If the player is sprinting, multiply the movement speed by the sprint modifier
-        if (Input.GetKey(sprintKey))
+        if (Input.GetKey(sprintKey) || Input.GetButton("Fire3"))
         {
             movDir = Input.GetAxisRaw("Horizontal") * runSpeed * sprintModifier;
             animator.speed = 2.5f;

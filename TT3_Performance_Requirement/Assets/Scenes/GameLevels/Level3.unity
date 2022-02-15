@@ -9022,5 +9022,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: TextBox
       objectReference: {fileID: 0}
+    - target: {fileID: 6597220865163640645, guid: b4315c4152b01e4479fb2c5694684b36, type: 3}
+      propertyPath: m_text
+      value: 'Hold
+
+        Left Shift
+
+        --
+
+        X button (gamepad)
+
+        --
+
+        Sprint
+        !'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4315c4152b01e4479fb2c5694684b36, type: 3}

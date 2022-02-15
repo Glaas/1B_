@@ -15,7 +15,7 @@ public class PowerUp_Base : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(powerKey) && isActive)
+        if ((Input.GetKeyDown(powerKey) || Input.GetButtonDown("Fire2")) && isActive)
         {
             UsePowerUp();
             isActive = false;
@@ -25,12 +25,10 @@ public class PowerUp_Base : MonoBehaviour
 
     public virtual void UsePowerUp()
     {
-        Debug.Log(this + " Used");
 
     }
     public virtual void PlayPowerUpSFX()
     {
-        Debug.Log(this + " Played");
         PlayerSFX.instance.PlaySFX(powerUpUsedSFX);
     }
 

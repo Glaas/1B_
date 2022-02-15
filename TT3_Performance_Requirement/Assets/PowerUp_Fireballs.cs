@@ -6,15 +6,12 @@ public class PowerUp_Fireballs : PowerUp_Base
 {
     [SerializeField]
     private GameObject fireballPrefab;
-    private PlayerMovement player;
 
-    private void Awake()
-    {
-        player = FindObjectOfType<PlayerMovement>();
-    }
+
     public override void UsePowerUp()
     {
         base.UsePowerUp();
+        PlayerMovement player = FindObjectOfType<PlayerMovement>();
         Debug.Log(this + " Used");
         PlayPowerUpSFX();
         Vector2 fireballDir = player.isPlayerFacingRight ? Vector2.right : Vector2.left;
