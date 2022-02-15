@@ -28,7 +28,7 @@ public class Hurtzone : MonoBehaviour
             }
             else
             {
-                if (player.isGrounded)
+                if (player.isGrounded || GetComponent<IcyState>())
                 {
                     playerRB.velocity = Vector2.zero;
 
@@ -46,7 +46,8 @@ public class Hurtzone : MonoBehaviour
     {
         playerRB.AddForce(new Vector2(0, 15), ForceMode2D.Impulse);
         GetComponent<AudioSource>().Play();
-        GetComponentInParent<BlobState>().BlobDeath();
+        if (GetComponentInParent<BlobState>()) GetComponentInParent<BlobState>().BlobDeath();
+        else if (GetComponent<IcyState>()) GetComponent<IcyState>().IcyDeath();
     }
     IEnumerator PlayerKnockback(Vector3 currPos, GameObject playerGO)
     {
