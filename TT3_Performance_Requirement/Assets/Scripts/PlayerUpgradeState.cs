@@ -68,6 +68,9 @@ public class PlayerUpgradeState : MonoBehaviour
     {
         hasGrown = false;
         FindObjectOfType<PlayerMovement>().transform.localScale = originalScale;
+
+        if (groundStompClass.enabled) groundStompClass.enabled = false;
+        if (fireballClass.enabled) fireballClass.enabled = false;
     }
 
 

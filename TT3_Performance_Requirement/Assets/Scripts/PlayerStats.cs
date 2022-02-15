@@ -42,8 +42,8 @@ public class PlayerStats : MonoBehaviour
             {
                 playerUpgradeState.hasFireballs = false;
                 playerUpgradeState.hasGroundStomp = false;
+                playerUpgradeState.ShrinkPlayer();
                 canTakeDamage = false;
-                GetComponent<PlayerUpgradeState>().ShrinkPlayer();
                 PlayerSFX.instance.PlaySFX(PlayerSFX.instance.playerHurt);
                 StartCoroutine(InvincibilitySequence());
                 UIManager.instance.UpdateUpgradeSprite(string.Empty, false);
