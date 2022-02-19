@@ -34,6 +34,8 @@ public class IcyState : MonoBehaviour
         rb2d.AddTorque(-5, ForceMode2D.Impulse);
     }
 
+    //Patrols between waypoints by moving to the next waypoint after reaching it. Also using the delta of the waypoint to determine the direction of the movement
+    //and flips the sprite accordingly
     IEnumerator GoToNextWaypoint()
     {
         while (true)
@@ -52,18 +54,13 @@ public class IcyState : MonoBehaviour
                     {
                         GetComponentInChildren<SpriteRenderer>().flipX = true;
                     }
-
-
-
-
-
-
                     yield return null;
                 }
 
             }
         }
     }
+    //Visualize waypoints when selected
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

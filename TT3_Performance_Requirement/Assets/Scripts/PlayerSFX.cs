@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+//Manages all SFX related to the player. Since the player is most often at the center of the screen, it
+//doesn't make sense to have an AudioSource on it. This makes it easier to manage the SFX.
 public class PlayerSFX : MonoBehaviour
 {
     public AudioClip playerDeath;

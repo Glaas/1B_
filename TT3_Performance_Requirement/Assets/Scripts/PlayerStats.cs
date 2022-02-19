@@ -13,7 +13,6 @@ public class PlayerStats : MonoBehaviour
     public int coinsHeld;
     public bool canTakeDamage = true;
 
-
     private void Awake()
     {
         if (instance == null)
@@ -52,6 +51,7 @@ public class PlayerStats : MonoBehaviour
         }
         StartCoroutine(DeathSequence());
     }
+    //Rend player invincibility for a short time and adds visual feedback by turning sprite red
     public IEnumerator InvincibilitySequence()
     {
         PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
@@ -61,6 +61,7 @@ public class PlayerStats : MonoBehaviour
         canTakeDamage = true;
         playerMovement.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
+    //Make the player unable to move, while playing a death animation and transporting it to the spawn point, with audio feedback
     IEnumerator DeathSequence()
     {
         PlayerSFX.instance.PlaySFX(PlayerSFX.instance.playerDeath);
@@ -80,8 +81,6 @@ public class PlayerStats : MonoBehaviour
         FindObjectOfType<PlayerMovement>().canMove = true;
         playerRigidbody.GetComponent<Animator>().SetTrigger("Raise");
         PlayerSFX.instance.PlaySFX(PlayerSFX.instance.playerRaise);
-
-
     }
 
     public void AddCoins(int amount)

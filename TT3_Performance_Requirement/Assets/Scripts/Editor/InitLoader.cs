@@ -1,3 +1,4 @@
+using System.Collections.Specialized;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -29,7 +30,7 @@ public class InitLoader
         sceneName = "MusicScene";
         EditorSceneManager.OpenScene("Assets/Scenes/" + sceneName + ".unity", OpenSceneMode.Additive);
     }
-
+    #region ("Scenes functions")
     [MenuItem("Load Scenes/Game scenes/ Load Level 1")]
     static void LoadLevel1()
     {
@@ -84,6 +85,8 @@ public class InitLoader
         sceneName = "Level9";
         LoadMyScene(sceneName);
     }
+    #endregion
+
     [MenuItem("Load Scenes/Open SceneLoader editor")]
     static void OpenInitLoaderScript()
     {

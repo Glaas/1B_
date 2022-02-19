@@ -38,13 +38,10 @@ public class CharacterController2D : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, k_GroundedRadius, groundLayers);
         for (int i = 0; i < colliders.Length; i++)
         {
-            if (colliders[i].gameObject != gameObject)
-            {
-                isGrounded = true;
-            }
+            if (colliders[i].gameObject != gameObject) isGrounded = true;
         }
     }
- 
+
     public void Move(float move, bool jump)
     {
         if (canMove)
@@ -67,7 +64,7 @@ public class CharacterController2D : MonoBehaviour
                 trailPS.Play();
                 PlayerSFX.instance.PlaySFX(PlayerSFX.instance.playerJump);
             }
-                   }
+        }
     }
     private void Awake()
     {

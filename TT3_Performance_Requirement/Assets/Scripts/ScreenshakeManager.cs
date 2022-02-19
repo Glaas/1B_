@@ -5,7 +5,6 @@ using Cinemachine;
 
 public class ScreenshakeManager : MonoBehaviour
 {
-
     public static ScreenshakeManager instance;
     CinemachineImpulseSource impulseSource;
 
@@ -21,7 +20,7 @@ public class ScreenshakeManager : MonoBehaviour
         }
         impulseSource = GetComponent<CinemachineImpulseSource>();
     }
-
+    //Wrapper around the Cinemachine screnshake, to simplify its use
     public void ScreenShake(float force)
     {
         impulseSource.GenerateImpulse(force);

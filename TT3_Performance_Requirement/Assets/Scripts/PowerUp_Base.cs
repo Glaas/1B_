@@ -11,8 +11,10 @@ public class PowerUp_Base : MonoBehaviour
     private AudioClip powerUpUsedSFX;
 
     public bool isActive = false;
-    public float cooldownDelay;
+    [SerializeField]
+    float cooldownDelay;
 
+    //Checks if the power key is pressed and if the power is not on cooldown
     void Update()
     {
         if ((Input.GetKeyDown(powerKey) || Input.GetButtonDown("Fire2")) && isActive)
@@ -23,15 +25,11 @@ public class PowerUp_Base : MonoBehaviour
         }
     }
 
-    public virtual void UsePowerUp()
-    {
+    //Base method for power ups, overriden in child classes to define different behavior
+    public virtual void UsePowerUp() { }
+    public virtual void PlayPowerUpSFX() { PlayerSFX.instance.PlaySFX(powerUpUsedSFX); }
 
-    }
-    public virtual void PlayPowerUpSFX()
-    {
-        PlayerSFX.instance.PlaySFX(powerUpUsedSFX);
-    }
-
+    //Simple coroutine to delay powerup usage
     IEnumerator PowerUpCooldown()
     {
         yield return new WaitForSeconds(cooldownDelay);

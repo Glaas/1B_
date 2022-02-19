@@ -66,6 +66,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    //Will update the power up display to show the current power up
     public void UpdateUpgradeSprite(string upgrade, bool enable)
     {
         if (upgrade == "fireballs")
@@ -78,7 +79,7 @@ public class UIManager : MonoBehaviour
         }
         StartCoroutine(UpgradeSpriteFeedback(1, enable));
     }
-
+    //Tween the UI to add a visual effect
     IEnumerator UpgradeSpriteFeedback(float duration, bool enable)
     {
         float time = 0;
@@ -90,7 +91,4 @@ public class UIManager : MonoBehaviour
             yield return null;
         }
     }
-
-
-
 }

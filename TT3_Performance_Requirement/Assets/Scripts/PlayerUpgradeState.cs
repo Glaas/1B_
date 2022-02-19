@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//Class mostly using data, could be rewritten using scriptable objects like in the Unity talk from 2017
 public class PlayerUpgradeState : MonoBehaviour
 {
     //Singleton pattern to ensure only one instance of the player stats exists
@@ -38,6 +38,8 @@ public class PlayerUpgradeState : MonoBehaviour
         hasGroundStomp = false;
     }
 
+
+    //Ensures only one upgrade is active at a time
     public void UpgradeFireball()
     {
         if (hasFireballs) return;
@@ -58,6 +60,7 @@ public class PlayerUpgradeState : MonoBehaviour
         fireballClass.enabled = false;
         GrowPlayer();
     }
+    //Updates UI and tweaks player scale to make it grow and shrink
     public void GrowPlayer()
     {
         hasGrown = true;

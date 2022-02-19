@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Helper classes to assign bindings to keypad buttons
 public class GamepadDebugger : MonoBehaviour
 {
    public bool active = false;
