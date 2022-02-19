@@ -10,6 +10,7 @@ public class PlayerSFX : MonoBehaviour
     public AudioClip playerHurt;
     public AudioClip playerPickupUpgrade;
     public AudioClip groundStomp;
+    public AudioClip doorEnter;
 
     public static PlayerSFX instance;
 

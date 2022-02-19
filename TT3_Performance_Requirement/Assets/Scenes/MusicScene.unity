@@ -270,6 +270,7 @@ MonoBehaviour:
   playerHurt: {fileID: 8300000, guid: f57d436584de7d64f8420f4ddd4d7d77, type: 3}
   playerPickupUpgrade: {fileID: 8300000, guid: b89d5ed311793bd4ca486f8b69ae04f6, type: 3}
   groundStomp: {fileID: 8300000, guid: 6cb86c7b011f15141ae49d46d8aa45b7, type: 3}
+  doorEnter: {fileID: 8300000, guid: 120f8f848b56456479bb121cb503e1d7, type: 3}
 --- !u!1 &1378946432
 GameObject:
   m_ObjectHideFlags: 0

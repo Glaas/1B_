@@ -241,7 +241,7 @@ MonoBehaviour:
   powerKey: 101
   powerUpUsedSFX: {fileID: 8300000, guid: a73167644fe76e1449fab97cf0961033, type: 3}
   isActive: 1
-  cooldownDelay: 3
+  cooldownDelay: 1
   layersAffectedByGroundStomp:
     serializedVersion: 2
     m_Bits: 1937
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed46bcfb97865c4b80bd1d900ef85d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
 --- !u!1 &1715476136
 GameObject:
   m_ObjectHideFlags: 0

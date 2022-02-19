@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     private float _horizontalMovDir = 0f;
     private bool jump = false;
 
+    private float playerAltitude;
+
     void Update()
     {
         //Prevents imput, can be set from other classes
@@ -34,9 +36,13 @@ public class PlayerMovement : MonoBehaviour
         SprintCheck(out _horizontalMovDir);
 
         animator.SetFloat("Speed", Mathf.Abs(_horizontalMovDir));
-        if (Input.GetKeyDown(jumpKey)|| Input.GetButtonDown("Submit")) jump = true;
+        if (Input.GetKeyDown(jumpKey) || Input.GetButtonDown("Submit"))
+        {
+            jump = true;
+        }
         FlipSprite(_horizontalMovDir);
     }
+
     //When gathering input, check if the player is sprinting
     void SprintCheck(out float movDir)
     {

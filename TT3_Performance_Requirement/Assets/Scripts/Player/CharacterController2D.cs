@@ -36,9 +36,15 @@ public class CharacterController2D : MonoBehaviour
 
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, k_GroundedRadius, groundLayers);
-        for (int i = 0; i < colliders.Length; i++) if (colliders[i].gameObject != gameObject) isGrounded = true;
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject != gameObject)
+            {
+                isGrounded = true;
+            }
+        }
     }
-
+ 
     public void Move(float move, bool jump)
     {
         if (canMove)
@@ -57,18 +63,11 @@ public class CharacterController2D : MonoBehaviour
                 // Add a vertical force to the player.
                 rb2D.AddForce(new Vector2(0f, m_JumpForce));
                 isGrounded = false;
-                animator.SetBool("IsJumping", true);
-                animator.SetBool("JumpUp", true);
                 dustMotesPS.Play();
                 trailPS.Play();
                 PlayerSFX.instance.PlaySFX(PlayerSFX.instance.playerJump);
             }
-            else
-            {
-                animator.SetBool("IsJumping", false);
-                animator.SetBool("JumpUp", false);
-            }
-        }
+                   }
     }
     private void Awake()
     {

@@ -68,11 +68,12 @@ public class SceneLoader : MonoBehaviour
 
     public IEnumerator SceneTransition(string levelToLoad)
     {
-        yield return StartCoroutine(UIManager.instance.Fade("out", 1f));
+        yield return StartCoroutine(UIManager.instance.Fade("out", .4f));
+        PlayerSFX.instance.PlaySFX(PlayerSFX.instance.doorEnter);
         SceneManager.UnloadSceneAsync(CurrentLevelName);
         SceneManager.LoadSceneAsync(levelToLoad, LoadSceneMode.Additive);
         CurrentLevelName = levelToLoad;
-        yield return StartCoroutine(UIManager.instance.Fade("in", 1f));
+        yield return StartCoroutine(UIManager.instance.Fade("in", .4f));
     }
     // private void OnGUI()
     // {
