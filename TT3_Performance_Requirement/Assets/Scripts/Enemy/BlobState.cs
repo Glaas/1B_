@@ -6,7 +6,7 @@ using UnityEngine;
 public class BlobState : MonoBehaviour
 {
     //Can be adjusted from inspector or set by other classes
-    [Range(0, 10)]
+    [Range(-10, 10)]
     public float movementSpeed = 1f;
 
     public bool isAlive = true;
