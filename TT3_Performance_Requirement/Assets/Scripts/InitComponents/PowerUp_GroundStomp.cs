@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerUp_GroundStomp : PowerUp_Base
@@ -57,6 +56,10 @@ public class PowerUp_GroundStomp : PowerUp_Base
             if (c.GetComponent<BlobState>())
             {
                 c.GetComponent<BlobState>().BlobDeath();
+            }
+            if (c.GetComponent<IcyState>())
+            {
+                c.GetComponent<IcyState>().IcyDeath();
             }
         }
 

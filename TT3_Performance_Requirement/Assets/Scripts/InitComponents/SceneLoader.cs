@@ -30,6 +30,7 @@ public class SceneLoader : MonoBehaviour
 
     void LoadMandatoryComponents()
     {
+        //Check if scene is already loaded
         int countLoaded = SceneManager.sceneCount;
         Scene[] loadedScenes = new Scene[countLoaded];
         for (int i = 0; i < countLoaded; i++) loadedScenes[i] = SceneManager.GetSceneAt(i);
@@ -66,6 +67,7 @@ public class SceneLoader : MonoBehaviour
         CurrentLevelName = LevelNames[i];
     }
 
+    //Fade between two levels asynchronously 
     public IEnumerator SceneTransition(string levelToLoad)
     {
         yield return StartCoroutine(UIManager.instance.Fade("out", .4f));
@@ -75,9 +77,4 @@ public class SceneLoader : MonoBehaviour
         CurrentLevelName = levelToLoad;
         yield return StartCoroutine(UIManager.instance.Fade("in", .4f));
     }
-    // private void OnGUI()
-    // {
-
-    //GUI.Label(new Rect(0, 15, 100, 100), "Current Level: " + CurrentLevelName);
-    // }
 }

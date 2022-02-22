@@ -23,6 +23,7 @@ public class Destructible : MonoBehaviour
             }
         }
     }
+    //When taking damage, check if it has healthpoints left over, if not, destroy itself
     public virtual void TakeDamage()
     {
         PlayDamageSFX();
@@ -33,6 +34,7 @@ public class Destructible : MonoBehaviour
         }
 
     }
+    //Destroy after a delay to ensure that audio has finished playing and particle systems too
     public virtual void Die()
     {
         PlayDeathSFX();
@@ -41,6 +43,7 @@ public class Destructible : MonoBehaviour
 
         Destroy(gameObject, 5);
     }
+    //Audio feedback for taking damage
     public virtual void PlayDamageSFX()
     {
         GetComponent<AudioSource>().PlayOneShot(hurtSound);

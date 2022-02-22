@@ -1,5 +1,4 @@
 using UnityEditor;
-using UnityEditor.SceneManagement;
 
 [CustomEditor(typeof(LevelDoorVolume))]
 public class LevelDoorVolumeEditor : Editor

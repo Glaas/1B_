@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Fireball : MonoBehaviour
@@ -9,6 +7,8 @@ public class Fireball : MonoBehaviour
         //Self destruct after 2 seconds
         Destroy(gameObject, 2f);
     }
+    //When colliding with a Destructible object, destroy the fireball
+    //And just causes damage to enemies
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Enemy")
