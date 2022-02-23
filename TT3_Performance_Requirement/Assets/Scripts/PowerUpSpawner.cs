@@ -22,8 +22,8 @@ public class PowerUpSpawner : MonoBehaviour
         }
     }
     //To have visibility on spawners in the level editor
-    private void OnDrawGizmosSelected() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, .2f);
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, .5f);
     }
 }

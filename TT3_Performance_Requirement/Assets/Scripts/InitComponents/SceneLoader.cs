@@ -74,6 +74,10 @@ public class SceneLoader : MonoBehaviour
         PlayerSFX.instance.PlaySFX(PlayerSFX.instance.doorEnter);
         SceneManager.UnloadSceneAsync(CurrentLevelName);
         SceneManager.LoadSceneAsync(levelToLoad, LoadSceneMode.Additive);
+        if (FindObjectOfType<PlayerMovement>() != null)
+        {
+            PlayerUpgradeState.instance.ShrinkPlayer();
+        }
         CurrentLevelName = levelToLoad;
         yield return StartCoroutine(UIManager.instance.Fade("in", .4f));
     }

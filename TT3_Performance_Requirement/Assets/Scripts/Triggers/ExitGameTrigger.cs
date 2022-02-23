@@ -35,4 +35,9 @@ public class ExitGameTrigger : MonoBehaviour
         }
         yield return null;
     }
+
+    private void Start()
+    {
+        if (PlayerUpgradeState.instance.hasGrown) PlayerUpgradeState.instance.ShrinkPlayer();
+    }
 }

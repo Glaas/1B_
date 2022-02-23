@@ -9,6 +9,9 @@ public class LevelDoorVolume : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         //On contact, transitions to the next scene
-        if (other.gameObject.CompareTag("Player")) StartCoroutine(SceneLoader.instance.SceneTransition(levelToLoad));
+        if (other.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(SceneLoader.instance.SceneTransition(levelToLoad));
+        }
     }
 }
