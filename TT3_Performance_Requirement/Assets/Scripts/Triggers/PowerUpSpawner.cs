@@ -18,11 +18,13 @@ public class PowerUpSpawner : MonoBehaviour
         Collider2D[] collidersInViscinity = Physics2D.OverlapCircleAll(transform.position, .2f);
         if (collidersInViscinity.Length <= 0)
         {
-            Instantiate(isFireball ? fireballPowerup : groundStompPowerup, transform.position, Quaternion.identity);
+            var clone = Instantiate(isFireball ? fireballPowerup : groundStompPowerup, transform.position, Quaternion.identity);
+            clone.transform.SetParent(transform);
         }
     }
     //To have visibility on spawners in the level editor
-    private void OnDrawGizmos() {
+    private void OnDrawGizmos()
+    {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, .5f);
     }

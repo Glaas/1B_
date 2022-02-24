@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MusicScene.unity
     guid: e868c235462d26a40bed459dbfceff49
   - enabled: 1
-    path: Assets/Scenes/CreditsScene.unity
+    path: Assets/Scenes/GameLevels/CreditsScene.unity
     guid: 30334d90e10beaa459bf9decf6c86518
   - enabled: 1
     path: Assets/Scenes/GameLevels/Level1.unity

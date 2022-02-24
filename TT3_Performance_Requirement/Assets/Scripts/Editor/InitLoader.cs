@@ -30,7 +30,7 @@ public class InitLoader
         EditorSceneManager.OpenScene("Assets/Scenes/" + sceneName + ".unity", OpenSceneMode.Additive);
     }
     #region ("Scenes functions")
-     [MenuItem("Load Scenes/Game scenes/ Load MainMenu")]
+    [MenuItem("Load Scenes/Game scenes/ Load MainMenu")]
     static void LoadMainMenu()
     {
         sceneName = "MainMenu";
@@ -100,6 +100,12 @@ public class InitLoader
     static void LoadLevel11()
     {
         sceneName = "Level11";
+        LoadMyScene(sceneName);
+    }
+      [MenuItem("Load Scenes/Game scenes/ Load Credits")]
+    static void LoadCredits()
+    {
+        sceneName = "CreditsScene";
         LoadMyScene(sceneName);
     }
     #endregion
