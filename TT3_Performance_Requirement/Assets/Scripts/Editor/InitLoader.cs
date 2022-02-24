@@ -1,4 +1,3 @@
-using System.Collections.Specialized;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -31,6 +30,12 @@ public class InitLoader
         EditorSceneManager.OpenScene("Assets/Scenes/" + sceneName + ".unity", OpenSceneMode.Additive);
     }
     #region ("Scenes functions")
+     [MenuItem("Load Scenes/Game scenes/ Load MainMenu")]
+    static void LoadMainMenu()
+    {
+        sceneName = "MainMenu";
+        LoadMyScene(sceneName);
+    }
     [MenuItem("Load Scenes/Game scenes/ Load Level 1")]
     static void LoadLevel1()
     {

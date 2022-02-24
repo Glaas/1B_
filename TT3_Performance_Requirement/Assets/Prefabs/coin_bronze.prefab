@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3911146984117822135}
   - component: {fileID: 6771293038952327178}
   - component: {fileID: 9126395575339369416}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: coin_bronze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5010,7 +5010,7 @@ GameObject:
   - component: {fileID: 3180033726156049665}
   - component: {fileID: 9039237685439777190}
   - component: {fileID: 27799377}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -69,6 +69,7 @@ public class UIManager : MonoBehaviour
     //Will update the power up display to show the current power up
     public void UpdateUpgradeSprite(string upgrade, bool enable)
     {
+        upgradeSpriteDisplay.color = Color.white;
         if (upgrade == "fireballs")
         {
             upgradeSpriteDisplay.sprite = fireBallsUpgradeSprite;
@@ -76,6 +77,10 @@ public class UIManager : MonoBehaviour
         else if (upgrade == "groundstomp")
         {
             upgradeSpriteDisplay.sprite = groundStompUpgradeSprite;
+        }
+        else if (upgrade == "")
+        {
+            upgradeSpriteDisplay.color = Color.clear;
         }
         StartCoroutine(UpgradeSpriteFeedback(1, enable));
     }

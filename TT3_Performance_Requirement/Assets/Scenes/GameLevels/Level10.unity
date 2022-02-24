@@ -1303,7 +1303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1863714803143775004, guid: fecca817ebe5fe1438faeb539a629fef, type: 3}
       propertyPath: waypoints.Array.data[0].y
-      value: 11.31
+      value: 11.48
       objectReference: {fileID: 0}
     - target: {fileID: 1863714803143775004, guid: fecca817ebe5fe1438faeb539a629fef, type: 3}
       propertyPath: waypoints.Array.data[1].x
@@ -1311,7 +1311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1863714803143775004, guid: fecca817ebe5fe1438faeb539a629fef, type: 3}
       propertyPath: waypoints.Array.data[1].y
-      value: 11.31
+      value: 11.48
       objectReference: {fileID: 0}
     - target: {fileID: 1863714803143775006, guid: fecca817ebe5fe1438faeb539a629fef, type: 3}
       propertyPath: m_Name
@@ -2220,7 +2220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1863714803143775004, guid: fecca817ebe5fe1438faeb539a629fef, type: 3}
       propertyPath: waypoints.Array.data[0].y
-      value: 4.4
+      value: 4.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863714803143775004, guid: fecca817ebe5fe1438faeb539a629fef, type: 3}
+      propertyPath: waypoints.Array.data[0].z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1863714803143775004, guid: fecca817ebe5fe1438faeb539a629fef, type: 3}
       propertyPath: waypoints.Array.data[1].x
@@ -2228,7 +2232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1863714803143775004, guid: fecca817ebe5fe1438faeb539a629fef, type: 3}
       propertyPath: waypoints.Array.data[1].y
-      value: 4.4
+      value: 4.48
       objectReference: {fileID: 0}
     - target: {fileID: 1863714803143775006, guid: fecca817ebe5fe1438faeb539a629fef, type: 3}
       propertyPath: m_Name
@@ -34675,7 +34679,7 @@ Transform:
   - {fileID: 640752528}
   - {fileID: 1648017283}
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2113073038
 PrefabInstance:

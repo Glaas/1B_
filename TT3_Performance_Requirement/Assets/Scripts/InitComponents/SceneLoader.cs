@@ -77,6 +77,7 @@ public class SceneLoader : MonoBehaviour
         if (FindObjectOfType<PlayerMovement>() != null)
         {
             PlayerUpgradeState.instance.ShrinkPlayer();
+            UIManager.instance.UpdateUpgradeSprite("", false);
         }
         CurrentLevelName = levelToLoad;
         yield return StartCoroutine(UIManager.instance.Fade("in", .4f));

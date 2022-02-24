@@ -74,8 +74,7 @@ public class PlayerUpgradeState : MonoBehaviour
 
         if (groundStompClass.enabled) groundStompClass.enabled = false;
         if (fireballClass.enabled) fireballClass.enabled = false;
+        hasGroundStomp = false;
+        hasFireballs = false;
     }
-
-
-
 }

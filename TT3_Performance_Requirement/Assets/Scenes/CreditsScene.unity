@@ -848,5 +848,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eabf1f5e5f8d7b64794cee5899e0f2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeSceneChange: 5
+  timeBeforeSceneChange: 12
   timerText: {fileID: 1009223490}
